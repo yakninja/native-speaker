@@ -13,6 +13,13 @@ from google.auth.transport.requests import Request
 from google.cloud import translate_v2 as translate
 import re
 
+# see https://cloud.google.com/text-to-speech/docs/voices
+
+#SOURCE_LANGUAGE = 'sr-RS'
+SOURCE_LANGUAGE = 'pt-PT'
+#VOICE_NAME = 'sr-RS-Standard-A'
+VOICE_NAME = 'pt-PT-Wavenet-A'
+
 # Set the scope for the Text-to-Speech API
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
 
@@ -47,8 +54,8 @@ translateClient = translate.Client(credentials=creds)
 
 # set voice parameters
 voice = texttospeech.VoiceSelectionParams(
-    language_code="pt-PT",
-    name="pt-PT-Wavenet-A",
+    language_code=SOURCE_LANGUAGE,
+    name=VOICE_NAME,
     ssml_gender=texttospeech.SsmlVoiceGender.FEMALE,
 )
 
@@ -69,7 +76,7 @@ with open('phrases.txt', 'r') as f:
         if not phrase:
             continue
 
-        translation = translateClient.translate(phrase, source_language="pt-PT",
+        translation = translateClient.translate(phrase, source_language=SOURCE_LANGUAGE,
                                                 target_language='ru')
         print(translation)
 
@@ -83,4 +90,4 @@ with open('phrases.txt', 'r') as f:
             out.write(response.audio_content)
             print(f'Audio content written to file "{filename}"')
         sound = AudioSegment.from_file(filename, format='mp3')
-        #play(sound)
+        play(sound)

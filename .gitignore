@@ -132,3 +132,5 @@ dmypy.json
 output/
 .DS_Store
 phrases.txt
+translated.txt
+shuffled.txt

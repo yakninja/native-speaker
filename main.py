@@ -1,23 +1,19 @@
 import os
-import json
-import sys
+import re
+import random
 from google.oauth2.credentials import Credentials
 from google.cloud import texttospeech
 from pydub import AudioSegment
 from pydub.playback import play
-import ebooklib
-from ebooklib import epub
-from bs4 import BeautifulSoup
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.cloud import translate_v2 as translate
-import re
 
 # see https://cloud.google.com/text-to-speech/docs/voices
 
-#SOURCE_LANGUAGE = 'sr-RS'
+# SOURCE_LANGUAGE = 'sr-RS'
 SOURCE_LANGUAGE = 'pt-PT'
-#VOICE_NAME = 'sr-RS-Standard-A'
+# VOICE_NAME = 'sr-RS-Standard-A'
 VOICE_NAME = 'pt-PT-Wavenet-A'
 
 # Set the scope for the Text-to-Speech API
@@ -66,28 +62,40 @@ audio_config = texttospeech.AudioConfig(
 
 
 def escape_filename(filename):
-    filename = re.sub(r'\W+', '_', filename).strip('_')[:255]
+    filename = re.sub(r'[\W/]+', '_', filename).strip('_')[:255]
     return filename
 
 
+to_shuffle = []
+
 with open('phrases.txt', 'r') as f:
-    for phrase in f:
-        phrase = phrase.strip()
-        if not phrase:
-            continue
+    with open('translated.txt', 'w') as tr:
+        for phrase in f:
+            phrase = phrase.strip()
+            if not phrase:
+                continue
 
-        translation = translateClient.translate(phrase, source_language=SOURCE_LANGUAGE,
-                                                target_language='ru')
-        print(translation)
+            translation = translateClient.translate(phrase, source_language=SOURCE_LANGUAGE,
+                                                    target_language='ru')
+            print(translation)
+            import_str = phrase.capitalize() + "\t" + \
+                translation['translatedText'].capitalize()
+            tr.write(import_str + "\n")
+            to_shuffle.append(import_str)
 
-        synthesis_input = texttospeech.SynthesisInput(
-            ssml='<speak>' + phrase + '</speak>')
-        response = speechClient.synthesize_speech(
-            input=synthesis_input, voice=voice, audio_config=audio_config
-        )
-        filename = 'output/' + escape_filename(phrase) + '.mp3'
-        with open(filename, 'wb') as out:
-            out.write(response.audio_content)
-            print(f'Audio content written to file "{filename}"')
-        sound = AudioSegment.from_file(filename, format='mp3')
-        play(sound)
+            synthesis_input = texttospeech.SynthesisInput(
+                ssml='<speak>' + phrase + '</speak>')
+            response = speechClient.synthesize_speech(
+                input=synthesis_input, voice=voice, audio_config=audio_config
+            )
+            filename = 'output/' + escape_filename(phrase) + '.mp3'
+            with open(filename, 'wb') as out:
+                out.write(response.audio_content)
+                print(f'Audio content written to file "{filename}"')
+            sound = AudioSegment.from_file(filename, format='mp3')
+            play(sound)
+
+random.shuffle(to_shuffle)
+
+with open('shuffled.txt', 'w') as file:
+    file.writelines(to_shuffle)

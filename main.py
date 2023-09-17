@@ -11,9 +11,9 @@ from google.cloud import translate_v2 as translate
 
 # see https://cloud.google.com/text-to-speech/docs/voices
 
-# SOURCE_LANGUAGE = 'sr-RS'
+#SOURCE_LANGUAGE = 'sr-RS'
 SOURCE_LANGUAGE = 'pt-PT'
-# VOICE_NAME = 'sr-RS-Standard-A'
+#VOICE_NAME = 'sr-RS-Standard-A'
 VOICE_NAME = 'pt-PT-Wavenet-A'
 
 # Set the scope for the Text-to-Speech API
@@ -71,8 +71,10 @@ to_shuffle = []
 with open('phrases.txt', 'r') as f:
     with open('translated.txt', 'w') as tr:
         for phrase in f:
-            phrase = phrase.strip()
+            phrase = phrase.strip().replace('предлог: ', '').capitalize()
             if not phrase:
+                continue
+            if not re.search(r'[a-zA-Z]', phrase):
                 continue
 
             translation = translateClient.translate(phrase, source_language=SOURCE_LANGUAGE,

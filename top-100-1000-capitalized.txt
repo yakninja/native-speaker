@@ -1,471 +1,12 @@
-Velocidade
-
-Direito
-
-Repetir
-
-Vamos meter as malas no carro
-Давай положим чемоданы в машину
-
-Resto
-
-Faltar
-
-Existir
-
-Dedo
-
-Sorriso
-
-Deitar
-
-Imediato
-
-Feiticeira
-
-Plataforma
-
-Cuidado
-
-Corpo
-
-Torre
-
-Sinal
-
-Forma
-
-Puxar
-
-Regressar
-
-Cozinha
-
-Correio
-
-Terceiro
-
-Invisível
-
-Espécie
-
-Verdadeiro
-
-Vidro
-
-Grupo
-
-Longe
-
-Baixar
-
-Inclinar
-
-Sozinho
-
-Acrescentar
-
-Centímetro
-
-Esconder
-
-Calar
-
-
-
-Passado
-
-Banco
-
-Atenção
-
-Entregar
-
-Viver
-
-Mudar
-
-Sequer
-
-Finalmente
-
-Pequenino
-
-Contudo
-
-Enfiar
-
-Chocolate
-
-Depressa
-
-Dor
-
-Fundo
-
-Empurrar
-
-Multidão
-
-Passagem
-
-Nimbu
-
-Taça
-
-Seamus
-
-Além
-
-Peça
-
-Privet
-
-Drive
-
-Jovem
-
-Animal
-
-Portanto
-
-Fácil
-
-Pratear
-
-Número
-
-Pescoço
-
-Chuva
-
-Espalhar
-
-Acenar
-
-Dormir
-
-Regra
-
-Sério
-
-Encostar
-
-Oferecer
-
-Caixa
-
-Buscar
-
-Estásr
-
-Coragem
-
-Comentar
-
-Dourar
-
-Retrato
-
-Invisibilidade
-
-Conta
-
-Mente
-
-Hedwig
-
-Cobrir
-
-Altura
-
-Mulher
-
-Transformar
-
-Prefeito
-
-Normal
-
-Tamanho
-
-Rapazinho
-
-Imaginar
-
-Atravessar
-
-Receber
-
-Várias
-
-Almoço
-
-Contigo
-
-Óculos
-
-Seco
-
-Demasiado
-
-Ignorar
-
-Testa
-
-Juntar
-
-Uma
-
-Monte
-
-Sonho
-
-Cerca
-
-Papel
-
-Desculpa
-
-Respirar
-
-Pronto
-
-Barco
-
-Tá
-
-Dinheiro
-
-Bilhete
-
-Hall
-
-Crabbe
-
-Chaser
-
-Exame
-
-Firenze
-
-Falta
-
-Filosofal
-
-Chá
-
-Duende
-
-Pesar
-
-Desejar
-
-Escolher
-
-Ovo
-
-Primeira
-
-Antigo
-
-Completo
-
-Preocupar
-
-Feliz
-
-Avistar
-
-Assunto
-
-Medida
-
-Soltar
-
-Evitar
-
-Lentamente
-
-Furioso
-
-Fixamente
-
-Sombra
-
-Nota
-
-Acaso
-
-Jogador
-
-Dormitório
-
-Turbante
-
-Xadrez
-
-Transportar
-
-Repente
-
-Sete
-
-Onze
-
-Enviar
-
-Vivo
-
-Prata
-
-Extremamente
-
-Diferente
-
-Esquina
-
-Porquê
-
-Jantar
-
-Nervosamente
-
-Hã
-
-Estremecer
-
-Perceber
-
-Pomfrey
-
-Espantar
-
-Som
-
-Joelho
-
-Londr
-
-Morto
-
-Baixinho
-
-Costumar
-
-Garrafa
-
-Vazio
-
-Perno
-
-Arrastar
-
-Chorar
-
-Nervoso
-
-Afinal
-
-Deslizar
-
-Satisfeito
-
-Bolo
-
-Pele
-
-Procura
-
-Abaixo
-
-Morte
-
-Flitwickr
-
-Compreender
-
-Flint
-
-Centauro
-
-Bane
-
-Cinzento
-
-Esperança
-
-Embrulho
-
-Nicola
-
-Resposta
-
-Feira
-
-Ravenclaw
-
-Doze
-
-Preparar
-
-Serpente
-
-Trabalhar
-
-Beber
-
-Cinquenta
-
-Segredo
-
-Irmã
-
-Vulgar
-
-Piscar
-
-Jardim
-
-Sol
-
-Garoto
-
-Adormecer
-
-Albu
-
-Desaparecir
-
-Razão
-
-Limpar
-
-Aterrar
-
-Degrau
-
-Abafar
-
-Sensação
-
-Rápido
-
-Rato
-
 Colega
 
 Lábio
 
 Buraco
 
-Lhes
-
 Dera
 
 Dente
-
-Barulho
 
 Roubar
 
@@ -478,8 +19,6 @@ Consigo
 Surgir
 
 Rapariga
-
-Ronan
 
 Julgar
 
@@ -497,27 +36,13 @@ Apressar
 
 Mover
 
-Sab
-
-Voo
-
-Azul
-
 Vestir
 
 Apostar
 
-Surpresa
-
 Corar
 
-Sentido
-
 Declarar
-
-Escrever
-
-Quebrar
 
 Principal
 
@@ -529,10 +54,6 @@ Jornal
 
 Porco
 
-Prato
-
-Seis
-
 Sugerir
 
 Sentado
@@ -542,8 +63,6 @@ Camisola
 Perigoso
 
 Ouvido
-
-Vencer
 
 Canto
 
@@ -555,15 +74,9 @@ Palma
 
 Vontade
 
-Maneira
-
 Quere
 
-Humano
-
 Expulso
-
-Mala
 
 Estudante
 
@@ -575,31 +88,17 @@ Cofre
 
 Livre
 
-Voldemortr
-
 Castigo
 
 Insistir
-
-Esquerda
 
 Alçapão
 
 Milhar
 
-Tom
-
-Roupa
-
 Desagradável
 
-Madeira
-
-Ensinar
-
 Encantamento
-
-Estudar
 
 Estúpido
 
@@ -607,15 +106,9 @@ Provavelmente
 
 Absolutamente
 
-Bigode
-
-Totalmente
-
 Esforço
 
 Notícia
-
-Idade
 
 Cauda
 
@@ -623,13 +116,7 @@ Barba
 
 Segurar
 
-Aperceber
-
-Madame
-
 Suspirar
-
-Confirmar
 
 Valer
 
@@ -645,25 +132,13 @@ Expressão
 
 Vês
 
-Elas
-
 Alívio
 
 Cumprimentar
 
-Cheiro
-
 Desviar
 
-Terminar
-
-Pacote
-
-Mar
-
 Sofá
-
-Sabes
 
 Cabo
 
@@ -681,41 +156,13 @@ Assustar
 
 Cromo
 
-Draco
-
-Hooch
-
 Perigo
-
-Verão
-
-Feitiçaria
-
-Interessante
 
 Scabbers
 
-Planta
-
-Amanhã
-
-Hallowe
-
-En
-
-Direita
-
 Treino
 
-Após
-
-Amarelo
-
 Experimentar
-
-Castanho
-
-Pagar
 
 Pronunciar
 
@@ -743,8 +190,6 @@ Secretária
 
 Chocar
 
-Desculpe
-
 Praticamente
 
 Permitir
@@ -753,19 +198,11 @@ Tempestade
 
 Encher
 
-Festa
-
-Disser
-
 Nobre
-
-Relógio
 
 Destruir
 
 Raio
-
-Casaco
 
 Cortar
 
@@ -785,13 +222,9 @@ Desembrulhar
 
 Pulso
 
-Cheirar
-
 Bruscamente
 
 Ouver
-
-Exactamente
 
 Fingir
 
@@ -803,8 +236,6 @@ Suficientemente
 
 Ordenar
 
-Sozinha
-
 Apressadamente
 
 Final
@@ -814,10 +245,6 @@ Mês
 Bastão
 
 Lágrima
-
-Pergaminho
-
-Arrancar
 
 Orelha
 
@@ -845,19 +272,11 @@ Estação
 
 Escoante
 
-Griphook
-
-Regresso
-
 Barreira
-
-Suficiente
 
 Fila
 
 Barão
-
-Peeves
 
 Masmorra
 
@@ -865,13 +284,9 @@ Salvar
 
 Reflexo
 
-Nr
-
 Encontrá
 
 Uniforme
-
-Hogwarts
 
 Pertencer
 
@@ -897,8 +312,6 @@ Constatar
 
 Relação
 
-Los
-
 Enganar
 
 Entredente
@@ -921,8 +334,6 @@ Secreto
 
 Iluminar
 
-Gordo
-
 Corrida
 
 Páler
@@ -933,33 +344,21 @@ Maldoso
 
 Castigar
 
-Vento
-
 Queixar
 
 Recear
-
-Cobra
 
 Pedaço
 
 Escapar
 
-Férias
-
 Praticar
 
 Largar
 
-Tipo
-
-Peito
-
 Leão
 
 Curiosidade
-
-Pendurar
 
 Prateleira
 
@@ -969,13 +368,9 @@ Bico
 
 Esgueirar
 
-Fome
-
 Indicar
 
 Fumo
-
-Hein
 
 Salsicha
 
@@ -984,8 +379,6 @@ Pânico
 Cavalo
 
 Seguro
-
-Enfrentar
 
 Reconhecer
 
@@ -996,8 +389,6 @@ Folha
 Conversar
 
 Retorquir
-
-Carrinho
 
 Compartimento
 

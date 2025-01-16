@@ -1,120 +1,73 @@
-Expressão
-Vês
-Alívio
-Cumprimentar
-Cabo
-Excelente
-Metro
-Ponta
-Marcar
-Conversa
-Assustar
-Cromo
-Perigo
-Treino
-Experimentar
-Pronunciar
-Atingir
-Quiser
-Envolver
-Suceder
-Diabo
-Figura
-Princípio
-Disposto
-Secretária
-Chocar
-Praticamente
-Permitir
-Encher
-Nobre
-Destruir
-Raio
-Cortar
-Fantástico
-Fotografia
-Lareira
-Lume
-Recordar
-Pancada
-Desembrulhar
-Pulso
-Bruscamente
-Ouver
-Fingir
-Horrível
-Certamente
-Suficientemente
-Ordenar
-Apressadamente
-Final
-Bastão
-Lágrima
-Orelha
-Tê
-Bocado
-Recuar
-Pálido
-Perante
-Ansioso
-Poderoso
-Impedir
-Moeda
-Estação
-Escoante
-Barreira
-Fila
-Barão
-Masmorra
-Salvar
-Reflexo
-Uniforme
-Pertencer
-Moto
-Acidente
-Puder
-Vista
-Escrito
-Senão
-Arranjar
-Constatar
-Relação
-Enganar
-Entredente
-Curioso
-Prosseguir
-Querido
-Entender
-Caixote
-Bebé
-Aliviar
-Secreto
-Iluminar
-Corrida
-Páler
-Anunciar
-Maldoso
-Castigar
-Queixar
-Recear
-Pedaço
-Escapar
-Praticar
-Largar
-Leão
-Curiosidade
-Prateleira
-Confusão
-Bico
-Esgueirar
-Indicar
-Fumo
-Salsicha
-Pânico
-Cavalo
-Seguro
-Reconhecer
-Folha
-Conversar
-Retorquir
-Compartimento
+пример Recordar
+пример Pancada
+пример Desembrulhar
+пример Pulso
+пример Bruscamente
+пример Ouver
+пример Fingir
+пример Horrível
+пример Certamente
+пример Suficientemente
+пример Ordenar
+пример Apressadamente
+пример Final
+пример Bastão
+пример Lágrima
+пример Orelha
+пример Tê
+пример Bocado
+пример Recuar
+пример Pálido
+пример Perante
+пример Ansioso
+пример Poderoso
+пример Impedir
+пример Estação
+пример Escoante
+пример Barreira
+пример Barão
+пример Masmorra
+пример Salvar
+пример Reflexo
+пример Uniforme
+пример Pertencer
+пример Moto
+пример Acidente
+пример Puder
+пример Vista
+пример Senão
+пример Arranjar
+пример Constatar
+пример Relação
+пример Enganar
+пример Entredente
+пример Curioso
+пример Prosseguir
+пример Entender
+пример Caixote
+пример Bebé
+пример Aliviar
+пример Corrida
+пример Páler
+пример Anunciar
+пример Maldoso
+пример Recear
+пример Pedaço
+пример Escapar
+пример Praticar
+пример Largar
+пример Leão
+пример Curiosidade
+пример Prateleira
+пример Confusão
+пример Bico
+пример Esgueirar
+пример Indicar
+пример Salsicha
+пример Pânico
+пример Cavalo
+пример Seguro
+пример Reconhecer
+пример Conversar
+пример Retorquir
+пример Compartimento

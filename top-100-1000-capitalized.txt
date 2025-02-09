@@ -1,4 +1,138 @@
-пример Recordar
+пример estojo
+пример apelido
+пример curtir
+пример confundir
+пример padrão
+пример cear
+пример torrada
+пример ovos mexidos
+пример sandes
+пример papas de aveia
+пример batatas a murro
+пример louro
+пример marmelo
+пример cerveja fino
+пример cerveja imperial
+пример cafe bica
+пример cafe simbalino
+пример fiambre
+пример refeiçao
+пример bacalhau a brás
+пример bitoque
+пример prato principal
+пример por volta
+пример creche
+пример anteontem
+пример tratado
+пример virgula
+пример ponto Final
+пример ponto de exclamaçao
+пример sinais de pontuaçao
+пример ponto e virgula
+пример ponto de interrogaçao
+пример travessão
+пример dois pontos
+пример houve uma altura que
+пример paragem de autocarro
+пример serviço prestado
+пример talheres
+пример a gorjeta
+пример tempero
+пример repolho
+пример amadurecer
+пример face a outros...
+пример pegada
+пример possuir
+пример agrião
+пример refogado
+пример Coser
+пример amassar o bolo
+пример caldo
+пример adivinhar
+пример escócia
+пример espero que não te importes
+пример repare
+пример sendo assim
+пример quanto baste
+пример frasco
+пример lata
+пример pacote
+пример posta
+пример cortar em postas
+пример saudável
+пример sã
+пример cortesia
+пример quaisquer
+пример lazer
+пример greve
+пример a calcanhar
+пример a coxa
+пример a nádega
+пример pestanas
+пример coluna
+пример cu
+пример os rins
+пример a bexiga
+пример os pulmões
+пример o estômago
+пример suponho
+пример consulta do dia
+пример esclarecido
+пример no entanto
+пример ando
+пример fadiga
+пример fatigar
+пример fatigado
+пример ao pé
+пример esta de baixa
+пример a garganta imflamada
+пример altura do ano
+пример virose
+пример nesse caso
+пример se calhar
+пример articulações
+пример ora bem
+пример posto isto
+пример o pneu furou
+пример recheio
+пример sobrar
+пример desenvolver
+пример estável
+пример duradoura
+пример devido
+пример trata-se de
+пример bolha
+пример malha
+пример colheita
+пример coleta
+пример antecedente
+пример passa
+пример preciso de uma informação
+пример Eu não falo bem português
+пример pode ajudar-me?
+пример com certeza!
+пример com todo o gosto!
+пример desinibido
+пример sisudo
+пример estrutura
+пример ótica
+пример o filme foi pessimo
+пример tarado
+пример arredores de cidade
+пример razoável
+пример horas de ponta
+пример feriado
+пример mergulhar
+пример saia
+пример olaria
+пример esquisito a comer
+пример raro
+пример avariado
+пример lagarto
+пример a guarda-fato
+пример guarda-roupa
+пример acolhimento
+пример conteúdo
 пример Pancada
 пример Desembrulhar
 пример Pulso

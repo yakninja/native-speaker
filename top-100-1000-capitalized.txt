@@ -1,13 +1,3 @@
-пример estojo
-пример apelido
-пример curtir
-пример confundir
-пример padrão
-пример cear
-пример torrada
-пример ovos mexidos
-пример sandes
-пример papas de aveia
 пример batatas a murro
 пример louro
 пример marmelo

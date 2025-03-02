@@ -1,0 +1,19 @@
+name: native-speaker
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - google-auth
+  - google-auth-oauthlib
+  - google-auth-httplib2
+  - google-cloud-texttospeech
+  - google-cloud-translate
+  - pydub
+  - beautifulsoup4
+  - ebooklib
+  - lxml
+  - mutagen
+  - pip
+  - pip:
+      - ebooklib  # Not available in Conda, needs pip installation

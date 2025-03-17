@@ -1,28 +1,3 @@
-пример batatas a murro
-пример louro
-пример marmelo
-пример cerveja fino
-пример cerveja imperial
-пример cafe bica
-пример cafe simbalino
-пример fiambre
-пример refeiçao
-пример bacalhau a brás
-пример bitoque
-пример prato principal
-пример por volta
-пример creche
-пример anteontem
-пример tratado
-пример virgula
-пример ponto Final
-пример ponto de exclamaçao
-пример sinais de pontuaçao
-пример ponto e virgula
-пример ponto de interrogaçao
-пример travessão
-пример dois pontos
-пример houve uma altura que
 пример paragem de autocarro
 пример serviço prestado
 пример talheres

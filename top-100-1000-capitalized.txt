@@ -1,3 +1,19 @@
+Face aos outros, ele se comporta de maneira diferente
+По отношению к другим он ведет себя по-другому
+Face aos outros desafios, este parece menor
+По сравнению с другими вызовами, этот кажется меньшим
+пример renda
+пример caução
+пример fiador
+пример senhorio
+пример inquilino
+пример despesas
+пример O contrato de arrendamento
+пример bolor
+пример avaria
+пример avariado
+пример formiga
+пример em vez de
 пример paragem de autocarro
 пример serviço prestado
 пример talheres
@@ -5,7 +21,6 @@
 пример tempero
 пример repolho
 пример amadurecer
-пример face a outros...
 пример pegada
 пример possuir
 пример agrião

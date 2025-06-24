@@ -15,6 +15,7 @@ from google.cloud import translate_v2 as translate
 SOURCE_LANGUAGE = 'pt-PT'
 #VOICE_NAME = 'sr-RS-Standard-A'
 VOICE_NAME = 'pt-PT-Wavenet-A'
+SPEAKING_RATE = 0.85  # Adjust the speaking rate as needed
 
 # Set the scope for the Text-to-Speech API
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
@@ -57,7 +58,8 @@ voice = texttospeech.VoiceSelectionParams(
 
 # set audio parameters
 audio_config = texttospeech.AudioConfig(
-    audio_encoding=texttospeech.AudioEncoding.MP3
+    audio_encoding=texttospeech.AudioEncoding.MP3,
+    speaking_rate=SPEAKING_RATE,
 )
 
 

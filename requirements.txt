@@ -1,0 +1,11 @@
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-cloud-texttospeech
+google-cloud-translate
+pydub
+audioop-lts
+beautifulsoup4
+ebooklib
+lxml
+mutagen

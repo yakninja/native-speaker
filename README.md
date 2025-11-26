@@ -1,18 +1,20 @@
-# Installation
+# Native speaker
 
-Need conda and ffmpeg to be installed
+## Installation
 
-# Running
+Need Python 3.12 or later and ffmpeg to be installed
 
-- `conda activate native-speaker`
-- `conda env update --name native-speaker --file environment.yml`
+- `python3 -m venv .venv`
+- `source .venv/bin/activate`
+- `pip install -r requirements.txt`
+
+## Running
+
+- `source .venv/bin/activate`
 - `python main.py`
 
-# VS Code setup
+## VS Code setup
 
-- `conda info --envs` to list env paths
 - Press Ctrl+Shift+P (Cmd+Shift+P on Mac) to open the Command Palette
 - Search for "Python: Select Interpreter" and click it.
-- If your Conda environment appears in the list, select it.
-- If it doesn't appear, click "Enter interpreter path" → "Find" and navigate to:
-  `/path/to/conda/envs/native-speaker/bin/python`
+- Select the interpreter from `.venv/bin/python`.

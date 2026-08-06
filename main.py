@@ -12,10 +12,14 @@ from google.cloud import translate_v2 as translate
 # see https://cloud.google.com/text-to-speech/docs/voices
 
 #SOURCE_LANGUAGE = 'sr-RS'
-SOURCE_LANGUAGE = 'pt-PT'
+#SOURCE_LANGUAGE = 'pt-PT'
+SOURCE_LANGUAGE = 'en-US'
 #VOICE_NAME = 'sr-RS-Standard-A'
-VOICE_NAME = 'pt-PT-Wavenet-A'
-SPEAKING_RATE = 0.85  # Adjust the speaking rate as needed
+VOICE_NAME = 'Leda'
+#VOICE_NAME = None
+VOICE_MODEL = 'gemini-2.5-flash-tts'  # Required for Gemini-TTS voices like Leda.
+#VOICE_MODEL = None
+SPEAKING_RATE = 0.75  # Adjust the speaking rate as needed
 
 # Set the scope for the Text-to-Speech API
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
@@ -50,11 +54,15 @@ speechClient = texttospeech.TextToSpeechClient(credentials=creds)
 translateClient = translate.Client(credentials=creds)
 
 # set voice parameters
-voice = texttospeech.VoiceSelectionParams(
+voice_params = dict(
     language_code=SOURCE_LANGUAGE,
     name=VOICE_NAME,
     ssml_gender=texttospeech.SsmlVoiceGender.FEMALE,
 )
+if VOICE_MODEL:
+    voice_params['model_name'] = VOICE_MODEL
+
+voice = texttospeech.VoiceSelectionParams(**voice_params)
 
 # set audio parameters
 audio_config = texttospeech.AudioConfig(
@@ -87,8 +95,11 @@ with open('phrases.txt', 'r') as f:
             tr.write(import_str + "\n")
             to_shuffle.append(import_str)
 
-            synthesis_input = texttospeech.SynthesisInput(
-                ssml='<speak>' + phrase + '</speak>')
+            if VOICE_MODEL:
+                synthesis_input = texttospeech.SynthesisInput(text=phrase)
+            else:
+                synthesis_input = texttospeech.SynthesisInput(
+                    ssml='<speak>' + phrase + '</speak>')
             response = speechClient.synthesize_speech(
                 input=synthesis_input, voice=voice, audio_config=audio_config
             )

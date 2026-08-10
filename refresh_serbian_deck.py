@@ -36,6 +36,10 @@ DEFAULT_TTS_REQUESTS_PER_MINUTE = 12.0
 # Retries are deliberately bounded: every attempt is paced and consumes the
 # same provider quota as an initial request.
 DEFAULT_TTS_RETRIES = 3
+# Let reviewers commit a decision just before playback finishes. Keep this
+# shorter than a second so a key pressed casually near the start of a clip
+# cannot approve a card by accident.
+DEFAULT_AUDIO_REVIEW_INPUT_WINDOW_SECONDS = 0.8
 ANKI_HEADERS = (
     "#separator:tab",
     "#html:true",
@@ -1010,7 +1014,33 @@ def apply_audio_review_decision(
     raise DeckError(f"unknown audio review action: {action}")
 
 
-def play_audio_file(path: Path) -> None:
+def interpret_playback_window_key(
+    key: str, pending_guarded_choice: str | None
+) -> tuple[str | None, str | None]:
+    """Interpret one key captured during the end-of-playback window."""
+    key = key.lower()
+    if pending_guarded_choice is not None:
+        if key in {"\r", "\n"}:
+            return pending_guarded_choice, None
+        pending_guarded_choice = None
+    if key in {"\r", "\n"}:
+        return "", None
+    if key in {"a", "r", "c", "s"}:
+        return key, None
+    if key in {"q", "x"}:
+        return None, key
+    return None, None
+
+
+def play_audio_file(
+    path: Path, *, input_window_seconds: float = DEFAULT_AUDIO_REVIEW_INPUT_WINDOW_SECONDS
+) -> str | None:
+    """Play one clip and return a decision typed near the end, if any.
+
+    The terminal input queue is flushed when the final input window begins, so
+    keystrokes from earlier in the clip do not leak into the next card. Enter,
+    a, r, c, and s are single-key actions; q and x retain their Enter guard.
+    """
     player = shutil.which("afplay")
     command = [player, str(path)] if player else None
     if command is None:
@@ -1019,10 +1049,66 @@ def play_audio_file(path: Path) -> None:
             command = [player, "-nodisp", "-autoexit", "-loglevel", "error", str(path)]
     if command is None:
         raise DeckError("no audio player found; install ffplay or run this command on macOS with afplay")
+
+    if not sys.stdin.isatty() or input_window_seconds <= 0:
+        try:
+            subprocess.run(command, check=True, stdin=subprocess.DEVNULL)
+        except subprocess.CalledProcessError as error:
+            raise DeckError(f"audio player failed for {path}") from error
+        return None
+
+    from mutagen.mp3 import MP3
+
+    import os
+    import select
+    import termios
+    import tty
+
+    duration = float(MP3(path).info.length)
+    process = subprocess.Popen(command, stdin=subprocess.DEVNULL)
+    capture_delay = max(0.0, duration - input_window_seconds)
+    captured_choice: str | None = None
+    interrupted = False
+
     try:
-        subprocess.run(command, check=True)
-    except subprocess.CalledProcessError as error:
-        raise DeckError(f"audio player failed for {path}") from error
+        try:
+            process.wait(timeout=capture_delay)
+        except subprocess.TimeoutExpired:
+            descriptor = sys.stdin.fileno()
+            previous_settings = termios.tcgetattr(descriptor)
+            pending_guarded_choice: str | None = None
+            try:
+                termios.tcflush(descriptor, termios.TCIFLUSH)
+                tty.setcbreak(descriptor)
+                while process.poll() is None and captured_choice is None:
+                    readable, _, _ = select.select([descriptor], [], [], 0.05)
+                    if not readable:
+                        continue
+                    key = os.read(descriptor, 1).decode("utf-8", errors="ignore").lower()
+                    if key == "\x03":
+                        interrupted = True
+                        break
+                    captured_choice, pending_guarded_choice = (
+                        interpret_playback_window_key(key, pending_guarded_choice)
+                    )
+            finally:
+                termios.tcsetattr(descriptor, termios.TCSADRAIN, previous_settings)
+
+        if interrupted:
+            process.terminate()
+        process.wait()
+    except KeyboardInterrupt:
+        process.terminate()
+        process.wait()
+        raise
+
+    if interrupted:
+        raise KeyboardInterrupt
+    if process.returncode:
+        raise DeckError(
+            f"audio player failed for {path} with exit code {process.returncode}"
+        )
+    return captured_choice
 
 
 def print_audio_review_card(
@@ -1086,6 +1172,8 @@ def command_review_audio(args: argparse.Namespace) -> int:
         raise DeckError("end index must not precede start index")
     if args.limit is not None and args.limit < 1:
         raise DeckError("limit must be at least 1")
+    if args.input_window_seconds < 0:
+        raise DeckError("input window must not be negative")
 
     review_path = Path(args.review)
     media_dir = Path(args.media_dir)
@@ -1122,14 +1210,22 @@ def command_review_audio(args: argparse.Namespace) -> int:
     for position, row in enumerate(selected, start=1):
         audio_path = media_dir / row["audio_file"]
         print_audio_review_card(row, position, len(selected), audio_path)
+        buffered_choice: str | None = None
         if not args.no_play:
-            play_audio_file(audio_path)
+            buffered_choice = play_audio_file(
+                audio_path, input_window_seconds=args.input_window_seconds
+            )
 
         while True:
-            choice = read_audio_review_key(
-                "[Enter/a] accept  [r] replay  [c] request change  "
-                "[s] skip  [q+Enter] save & quit  [x+Enter] discard & quit: "
-            )
+            if buffered_choice is None:
+                choice = read_audio_review_key(
+                    "[Enter/a] accept  [r] replay  [c] request change  "
+                    "[s] skip  [q+Enter] save & quit  [x+Enter] discard & quit: "
+                )
+            else:
+                choice = buffered_choice
+                buffered_choice = None
+                print(f"Buffered action: {'accept' if choice in {'', 'a'} else choice}")
 
             if choice in {"", "a", "accept"}:
                 previous_status = row["status"]
@@ -1153,7 +1249,9 @@ def command_review_audio(args: argparse.Namespace) -> int:
                 if args.no_play:
                     print("Playback is disabled by --no-play")
                 else:
-                    play_audio_file(audio_path)
+                    buffered_choice = play_audio_file(
+                        audio_path, input_window_seconds=args.input_window_seconds
+                    )
                 continue
             if choice in {"c", "change"}:
                 try:
@@ -1495,6 +1593,12 @@ def build_parser() -> argparse.ArgumentParser:
     review_audio.add_argument("--include-verified", action="store_true")
     review_audio.add_argument(
         "--no-play", action="store_true", help="show cards and prompts without playing audio"
+    )
+    review_audio.add_argument(
+        "--input-window-seconds",
+        type=float,
+        default=DEFAULT_AUDIO_REVIEW_INPUT_WINDOW_SECONDS,
+        help="buffer review keys pressed during the final part of playback (default: 0.8)",
     )
     review_audio.add_argument(
         "--list-only", action="store_true", help="show the review queue without playing or prompting"

@@ -210,6 +210,24 @@ class SerbianDeckPipelineTests(unittest.TestCase):
 
         self.assertEqual([row["guid"] for row in selected], ["g2", "g4"])
 
+    def test_audio_review_defaults_to_a_short_end_of_clip_input_window(self) -> None:
+        args = deck.build_parser().parse_args(["review-audio"])
+
+        self.assertEqual(
+            args.input_window_seconds,
+            deck.DEFAULT_AUDIO_REVIEW_INPUT_WINDOW_SECONDS,
+        )
+        self.assertLessEqual(args.input_window_seconds, 1.0)
+
+    def test_playback_window_buffers_acceptance_and_guards_quit(self) -> None:
+        self.assertEqual(deck.interpret_playback_window_key("a", None), ("a", None))
+        self.assertEqual(deck.interpret_playback_window_key("\n", None), ("", None))
+
+        choice, pending = deck.interpret_playback_window_key("q", None)
+        self.assertIsNone(choice)
+        self.assertEqual(pending, "q")
+        self.assertEqual(deck.interpret_playback_window_key("\n", pending), ("q", None))
+
     def test_audio_review_display_compares_original_and_new_note(self) -> None:
         row = {field: "" for field in deck.REVIEW_FIELDS}
         row.update(

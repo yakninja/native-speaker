@@ -270,6 +270,18 @@ class SerbianDeckPipelineTests(unittest.TestCase):
             with self.assertRaisesRegex(deck.DeckError, "has no prompt"):
                 deck.load_tts_overrides(path)
 
+    def test_tts_override_can_supply_pronunciation_only_text(self) -> None:
+        override = {
+            "prompt": "Use the marked lexical stress",
+            "tts_text": "Nije pristojno prisluškívati tuđe razgovore",
+        }
+
+        rendered = deck.effective_tts_input(
+            "Nije pristojno prisluškivati tuđe razgovore", False, override
+        )
+
+        self.assertEqual(rendered, "Nije pristojno prisluškívati tuđe razgovore")
+
     def test_synthesis_parser_accepts_an_explicit_source_range(self) -> None:
         args = deck.build_parser().parse_args(
             ["synthesize", "--start-index", "101", "--end-index", "200", "--dry-run"]

@@ -673,6 +673,14 @@ def effective_tts_config(
     return config
 
 
+def effective_tts_input(
+    serbian: str, append_period: bool, override: dict[str, str] | None
+) -> str:
+    """Render visible Serbian or an exceptional TTS-only pronunciation spelling."""
+    text = override.get("tts_text", serbian) if override else serbian
+    return rendered_tts_input(text, append_period)
+
+
 def choose_pilot_rows(rows: Sequence[dict[str, str]], limit: int) -> list[dict[str, str]]:
     ready = [row for row in rows if row["status"] in READY_STATUSES]
     if len(ready) <= limit:
@@ -852,7 +860,7 @@ def run_synthesis(args: argparse.Namespace, *, pilot: bool) -> int:
         config_hash = sha256_bytes(
             json.dumps(config, sort_keys=True, ensure_ascii=False).encode("utf-8")
         )
-        tts_input = rendered_tts_input(serbian, args.append_period)
+        tts_input = effective_tts_input(serbian, args.append_period, override)
         filename = audio_filename(guid, serbian)
         output_path = media_dir / filename
         text_hash = sha256_bytes(normalize_text(serbian).encode("utf-8"))
@@ -861,6 +869,7 @@ def run_synthesis(args: argparse.Namespace, *, pilot: bool) -> int:
             previous.get("status") in {"ok", "cached"}
             and previous.get("text_sha256") == text_hash
             and previous.get("config_sha256") == config_hash
+            and previous.get("tts_input") == tts_input
             and previous.get("output_filename") == filename
         )
         if cache_matches:
